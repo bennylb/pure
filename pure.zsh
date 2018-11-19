@@ -593,7 +593,7 @@ prompt_pure_setup() {
 	PROMPT='%(12V.%F{242}%12v%f .)'
 
 	# if direnv is active, display it in yellow
-	PROMPT+='%(13V.%F{227}[%13v]%f .)'
+	PROMPT+='%(13V.%F{227}(%13v)%f .)'
 	# PROMPT+=' [testing] '
 
 	# prompt turns red if the previous command didn't exit with 0
