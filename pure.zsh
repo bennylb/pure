@@ -191,6 +191,10 @@ prompt_pure_precmd() {
 		export VIRTUAL_ENV_DISABLE_PROMPT=12
 	fi
 
+	psvar[13]=
+
+	if [[ "$DIRENV_DIR" != "" ]]; then psvar[13]=direnv; fi
+
 	# Make sure VIM prompt is reset.
 	prompt_pure_reset_prompt_symbol
 
@@ -587,6 +591,10 @@ prompt_pure_setup() {
 
 	# if a virtualenv is activated, display it in grey
 	PROMPT='%(12V.%F{242}%12v%f .)'
+
+	# if direnv is active, display it in yellow
+	PROMPT+='%(13V.%F{227}[%13v]%f .)'
+	# PROMPT+=' [testing] '
 
 	# prompt turns red if the previous command didn't exit with 0
 	PROMPT+='%(?.%F{magenta}.%F{red})${prompt_pure_state[prompt]}%f '
